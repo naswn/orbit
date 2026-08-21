@@ -1363,6 +1363,20 @@ export default function Home() {
                       : "Save profile"}
                   </button>
 
+                  {/* LOGOUT — moved inside the dropdown so it's always
+                      reachable, including on mobile where the old
+                      navbar-only button was hidden by "sm:block" */}
+
+                  <button
+                    onClick={logout}
+                    disabled={loggingOut}
+                    className="w-full rounded-xl bg-red-500/10 py-2 text-sm font-semibold text-red-500 transition hover:bg-red-500/20 disabled:opacity-50"
+                  >
+                    {loggingOut
+                      ? "Logging out..."
+                      : "Logout"}
+                  </button>
+
                   <button
                     onClick={() =>
                       setProfileOpen(
@@ -1378,7 +1392,7 @@ export default function Home() {
             )}
           </div>
 
-          {/* LOGOUT */}
+          {/* LOGOUT (desktop shortcut, unchanged for sm+ screens) */}
 
           <button
             onClick={logout}
